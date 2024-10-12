@@ -1,0 +1,183 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #14bdae;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+
+.game-container {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.menu select {
+    background-color: #03201c;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+.turn-indicator {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color:black;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    position: relative; 
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+
+@keyframes PopUp {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+
+.horizontal-line {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: width 0.5s ease;
+    transform-origin: center;
+    transform: scale(0);
+    animation: PopUp 0.5s ease forwards;
+}
+
+.top-line {
+    top: 33.33%;
+}
+
+.bottom-line {
+    top: 66.66%;
+}
+
+.vertical-line {
+    position: absolute;
+    height: 100%;
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: height 0.5s ease;
+    transform-origin: center;
+    transform: scale(0);
+    animation: PopUp 0.5s ease forwards;
+}
+
+.left-line {
+    left: 33.33%;
+}
+
+.right-line {
+    left: 66.66%;
+}
+
+
+.mark {
+    font-weight: bold;
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mark:hover {
+    transform: scale(1.1);
+}
+
+
+.restart-container {
+    margin-top: 10px;
+}
+
+#restartButton {
+    background-color: #5721ba;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+#restartButton:hover {
+    background-color: #43149a;
+}
+/* Shared styles for both winner and draw messages */
+.popup-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    animation: popup 0.5s ease forwards;
+}
+
+@keyframes popup {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.winner-symbol, .draw-symbol {
+    font-size: 80px;
+    font-weight: bold;
+    color:  #43149a; 
+}
+
+.winner-text, .draw-text {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 10px;
+}
+
+
+.draw-symbol {
+    color: #43149a; 
+}
